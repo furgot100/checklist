@@ -39,15 +39,14 @@ def select(function_code):
         read(item_index)
     elif function_code == "P":
         list_all_items()
+    elif function_code =="Q":
+        return False
     else:
         print("Unkown Option")        
 
 def user_input(prompt):
     user_input = input(prompt)
     return user_input
-
-
-
 
 
 
@@ -60,15 +59,19 @@ def test():
     destroy(1)
     print(read(0))
     list_all_items()
-    mark_completed(0, 'purple socks')
+    mark_completed(0)
     print(read(0))
+   
     select("C")
     list_all_items()
     select("R")
     list_all_items()
-    select("P")
-    list_all_items()
+
     user_value = user_input("Please Enter a value:")
     print(user_value)
 
 test()
+running = True
+while running:
+    selection = user_input("Press C to add to list, T to Read from list, P to display list, and Q to quit")
+    select(selection)
