@@ -26,10 +26,7 @@ def list_all_items():
 
 def mark_completed(index):
      checklist[int(index)] = "√ " + checklist[int(index)]
-    
 
-
-     
 
 def select(function_code):
     if function_code == "C":
@@ -38,13 +35,23 @@ def select(function_code):
     elif function_code == "R":
         item_index = user_input("Index Number?")
         read(item_index)
+    elif function_code == "U":
+        index = user_input("Enter in an Index: ")
+        item = user_input("Enter in an item: ")
+        update(int(index), item)
+    elif function_code == "D":
+        index = user_input("What index to destory")
+        destroy(int(index))
     elif function_code == "P":
         list_all_items()
+
     elif function_code =="Q":
         return False
     else:
         print("Unkown Option")
     return True        
+
+
 def user_input(prompt):
     user_input = input(prompt)
     return user_input
@@ -82,7 +89,7 @@ def test():
     user_value = user_input("Please Enter a value:")
     print(user_value)
 
-test()
+#test()
 
 
 running = True
